@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_saas_golf_domain_GolfClub" items="${golfclubs}" z="TMmsZzHYdxCeRvvXgxne5JMTqxI=">
+        <table:table data="${golfclubs}" id="l_com_saas_golf_domain_GolfClub" path="/golfclubs" z="Y4aeciSp0ip2DpiEXhtF9SGOmEM=">
+            <table:column id="c_com_saas_golf_domain_GolfClub_golfClubName" property="golfClubName" z="D9CFHjfjy27wN+W6LGvkMjBtjlI="/>
+            <table:column date="true" dateTimePattern="${golfClub_datecreated_date_format}" id="c_com_saas_golf_domain_GolfClub_dateCreated" property="dateCreated" z="rJH/HY6h6n+aejF8HD2F0uGuPCA="/>
+            <table:column id="c_com_saas_golf_domain_GolfClub_account" property="account" z="7DiyTq4VafVN/9cJS1kG9KsL+Hw="/>
+            <table:column id="c_com_saas_golf_domain_GolfClub_golfCourse" property="golfCourse" z="4TbCXzhWFJphqyRmPTnsvbO8M+I="/>
+            <table:column id="c_com_saas_golf_domain_GolfClub_competitions" property="competitions" z="PLyqQDfvcO5N+5tT3ZI4wBj+46E="/>
+            <table:column id="c_com_saas_golf_domain_GolfClub_players" property="players" z="6tQtaYsL9Se4lmgQHDWkCcDoaGM="/>
+        </table:table>
+    </page:list>
+</div>

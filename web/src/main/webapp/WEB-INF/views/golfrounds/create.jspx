@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_saas_golf_domain_GolfRound" modelAttribute="golfRound" path="/golfrounds" render="${empty dependencies}" z="5UutScuxtWswJNC1g9o9aII6PIM=">
+        <field:datetime dateTimePattern="${golfRound_datecreated_date_format}" field="dateCreated" id="c_com_saas_golf_domain_GolfRound_dateCreated" z="n4+n7TeqXFKfj1A9A4C1bv7q8b0="/>
+        <field:checkbox field="inProgress" id="c_com_saas_golf_domain_GolfRound_inProgress" z="uqF52uSp00gsSuA+QFc+2CNXpA8="/>
+        <field:select field="scoreCard" id="c_com_saas_golf_domain_GolfRound_scoreCard" itemValue="id" items="${scorecards}" path="/scorecards" required="true" z="57SeS2wM92l7OjBphuLdd4YkPG8="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_saas_golf_domain_GolfRound" render="${not empty dependencies}" z="MMXeS2S97e9DILZ7G3iV/SHTBYk="/>
+</div>

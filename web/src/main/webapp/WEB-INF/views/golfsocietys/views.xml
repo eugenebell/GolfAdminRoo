@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="golfsocietys/list">
+        <put-attribute name="body" value="/WEB-INF/views/golfsocietys/list.jspx"/>
+    </definition>
+<definition extends="default" name="golfsocietys/show">
+        <put-attribute name="body" value="/WEB-INF/views/golfsocietys/show.jspx"/>
+    </definition>
+<definition extends="default" name="golfsocietys/create">
+        <put-attribute name="body" value="/WEB-INF/views/golfsocietys/create.jspx"/>
+    </definition>
+<definition extends="default" name="golfsocietys/update">
+        <put-attribute name="body" value="/WEB-INF/views/golfsocietys/update.jspx"/>
+    </definition>
+</tiles-definitions>

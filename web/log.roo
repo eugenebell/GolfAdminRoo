@@ -1,0 +1,20 @@
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-25 21:24:55
+hint
+hint
+web mvc setup
+controller class --class ~.web.GolfScoreCardController
+logging setup --package WEB --level DEBUG
+web mvc all --package ~.web.scaffold
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-25 23:23:39
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-28 14:30:11
+web mvc all --package ~.web.scaffold
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+perform package 
+cloud foundry bind service --serviceName golf-mongodb --appName golfservice
+logging setup --package WEB --level DEBUG
+web mvc all --package ~.web.scaffold
+web mvc all --package ~.web
+web mvc setup 
+web mvc all --package ~.web.scaffold
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-28 14:45:00

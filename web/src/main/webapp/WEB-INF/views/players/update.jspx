@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_saas_golf_domain_Player" modelAttribute="player" path="/players" versionField="none" z="iWSFljI9DyFX6S8TtDKUR2MTLrI=">
+        <field:textarea field="playerName" id="c_com_saas_golf_domain_Player_playerName" required="true" z="h87wd7BGUyOqDhCuzvrT/wgg3pg="/>
+        <field:datetime dateTimePattern="${player_datecreated_date_format}" field="dateCreated" id="c_com_saas_golf_domain_Player_dateCreated" z="WBYzXWyUOWAPLuSm5xMAElGUVRQ="/>
+        <field:input field="handicap" id="c_com_saas_golf_domain_Player_handicap" required="true" z="o0SDQDdKu8iyHrXKye8rP3gzdac="/>
+        <field:simple field="golfRounds" id="c_com_saas_golf_domain_Player_golfRounds" messageCode="entity_reference_not_managed" messageCodeAttribute="Golf Round" z="LIxTZMBL2CniNPMHAlhkZbd5d1w="/>
+    </form:update>
+</div>

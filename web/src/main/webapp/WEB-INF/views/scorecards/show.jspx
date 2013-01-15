@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_saas_golf_domain_ScoreCard" object="${scorecard}" path="/scorecards" z="LDHJiXL7LNcq+VhZma1EEriCvbI=">
+        <field:display date="true" dateTimePattern="${scoreCard_datecreated_date_format}" field="dateCreated" id="s_com_saas_golf_domain_ScoreCard_dateCreated" object="${scorecard}" z="M6lArAK0EucV6E9DqJ+bL9s97vI="/>
+        <field:display field="teeColor" id="s_com_saas_golf_domain_ScoreCard_teeColor" object="${scorecard}" z="qImkNoXg22geJhsCB9E3mRByEHc="/>
+        <field:display field="par" id="s_com_saas_golf_domain_ScoreCard_par" object="${scorecard}" z="gG6pXlucexwIeDkZhuaiziLT+mc="/>
+        <field:display field="courseMap" id="s_com_saas_golf_domain_ScoreCard_courseMap" object="${scorecard}" z="Vlk3bixAxEhOzhD6Qgu25wSwjyg="/>
+        <field:display field="golfCourseHoles" id="s_com_saas_golf_domain_ScoreCard_golfCourseHoles" object="${scorecard}" z="59EamMQFSS+lOAWBrBAW2NfeEvw="/>
+        <field:display field="name" id="s_com_saas_golf_domain_ScoreCard_name" object="${scorecard}" z="vhs7qyp0ILhqUupXERXTjvCG2KM="/>
+        <field:display field="courseLengthMeters" id="s_com_saas_golf_domain_ScoreCard_courseLengthMeters" object="${scorecard}" z="PkD+nVf69rPu/th806o2HKQrIAM="/>
+        <field:display field="courseLengthYards" id="s_com_saas_golf_domain_ScoreCard_courseLengthYards" object="${scorecard}" z="jxJnb1wdxR4IMy4MxcjMLCHygUA="/>
+    </page:show>
+</div>

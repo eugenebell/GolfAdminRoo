@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_saas_golf_domain_GolfCourseHole" object="${golfcoursehole}" path="/golfcourseholes" z="CDGmF7Mpk+VvESECaId2Udth9Xg=">
+        <field:display field="holeNumber" id="s_com_saas_golf_domain_GolfCourseHole_holeNumber" object="${golfcoursehole}" z="UXhn87/QJ6r3L2v8X/GcqU35MS8="/>
+        <field:display field="par" id="s_com_saas_golf_domain_GolfCourseHole_par" object="${golfcoursehole}" z="vgXfNF7vxqm5vf3YireMT93sMHk="/>
+        <field:display field="holeIndex" id="s_com_saas_golf_domain_GolfCourseHole_holeIndex" object="${golfcoursehole}" z="j85eAU7AvSErMf0jKtnROYQZSEk="/>
+        <field:display field="scoreCard" id="s_com_saas_golf_domain_GolfCourseHole_scoreCard" object="${golfcoursehole}" z="HNzGOXMT3mTMxur0JnD1F40xjNg="/>
+        <field:display field="name" id="s_com_saas_golf_domain_GolfCourseHole_name" object="${golfcoursehole}" z="cvoypclw0QZdq5rdWIH69Vap+ss="/>
+    </page:show>
+</div>

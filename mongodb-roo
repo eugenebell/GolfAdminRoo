@@ -1,0 +1,116 @@
+//mongo setup --databaseName golf-mongodb --cloudFoundry true
+
+
+entity mongo --class ~.domain.GolfCourseHole --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 10
+field number --fieldName holeNumber --notNull true --type java.lang.Integer --max 18 --min 1
+field number --fieldName par --notNull true --type java.lang.Integer --max 6 --min 3
+field number --fieldName holeIndex --notNull true --type java.lang.Integer --max 18 --min 1
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+repository mongo --interface ~.repository.GolfCourseHoleRepository --entity ~.domain.GolfCourseHole
+
+entity mongo --class ~.domain.ScoreCard --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 20
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName teeColor --notNull true --sizeMin 2 --sizeMax 20
+field number --fieldName par --notNull true --type java.lang.Integer --max 80 --min 68
+field number --fieldName courseLengthYards --notNull true --type java.lang.Integer --min 1000
+field file --fieldName courseMap --contentType PNG  --notNull true
+field set --fieldName golfCourseHoles --type ~.domain.GolfCourseHole 
+repository mongo --interface ~.repository.ScoreCardRepository --entity ~.domain.ScoreCard
+
+entity mongo --class ~.domain.GolfCourse --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field file --fieldName logo --contentType PNG --notNull true
+field string --fieldName address --notNull true --sizeMin 2 --sizeMax 250
+field string --fieldName phoneNumbers --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName website --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName courseType --notNull true --sizeMin 2
+field number --fieldName holes --notNull true --type java.lang.Integer --max 18 --min 9
+field string --fieldName designedBy --notNull true --sizeMin 2
+field number --fieldName yearBuilt --notNull true --type java.lang.Integer --min 1550 --max 2100
+field boolean --fieldName guestsWelcome --notNull true
+field boolean --fieldName drivingRange --notNull true
+field boolean --fieldName puttingGreen --notNull true
+field boolean --fieldName rentalClubs --notNull true
+field boolean --fieldName rentalGolfTrolley --notNull true
+field boolean --fieldName enabledGPS --notNull true
+field boolean --fieldName rentalGolfCart --notNull true
+field boolean --fieldName proShop --notNull true
+field boolean --fieldName teachingPro --notNull true
+field boolean --fieldName golfSchool --notNull true
+field boolean --fieldName bookingsWelcomed --notNull true
+field number --fieldName priceRangeWeekdaysLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekdaysHigh --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsHigh --notNull true --type java.lang.Double
+field string --fieldName otherFacilities --notNull false
+field set --fieldName scoreCards --type ~.domain.ScoreCard --cardinality ONE_TO_MANY 
+repository mongo --interface ~.repository.GolfCoursesRepository --entity ~.domain.GolfCourse
+
+entity mongo --class ~.domain.Account --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName title --notNull true --sizeMin 2 --sizeMax 8
+field string --fieldName firstName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName lastName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName addressOne --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressTwo --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressThree --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName town --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName county --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName mobile --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName phone --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 30
+repository mongo --interface ~.repository.AccountRepository --entity ~.domain.Account
+
+entity mongo --class ~.domain.GolfRound --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field boolean --fieldName inProgress --notNull true
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+repository mongo --interface ~.repository.GolfRoundRepository --entity ~.domain.GolfRound
+
+entity mongo --class ~.domain.Player --testAutomatically
+field string --fieldName playerName --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field number --fieldName handicap --notNull true --type double
+field set --fieldName golfRounds --type ~.domain.GolfRound --cardinality ONE_TO_MANY
+repository mongo --interface ~.repository.PlayerRepository --entity ~.domain.Player
+
+entity mongo --class ~.domain.PlayerParticipant --testAutomatically
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+field reference --fieldName player --notNull true --type ~.domain.Player
+repository mongo --interface ~.repository.PlayerParticipantRepository --entity ~.domain.PlayerParticipant
+
+entity mongo --class ~.domain.Competition --testAutomatically
+field string --fieldName name --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field set --fieldName playerParticipants --type ~.domain.PlayerParticipant
+repository mongo --interface ~.repository.CompetitionRepository --entity ~.domain.Competition
+
+entity mongo --class ~.domain.GolfClub --testAutomatically
+field string --fieldName golfClubName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field reference --fieldName golfCourse --notNull true --type ~.domain.GolfCourse
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfClubRepository --entity ~.domain.GolfClub
+
+entity mongo --class ~.domain.GolfSociety --testAutomatically
+field string --fieldName societyName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfSocietyRepository --entity ~.domain.GolfSociety
+
+entity mongo --class ~.domain.Golfer --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolferRepository --entity ~.domain.Golfer
+

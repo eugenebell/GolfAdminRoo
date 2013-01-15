@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_saas_golf_domain_Competition" items="${competitions}" z="Nsx0QVALPadjhESvtqUQe3v3B+w=">
+        <table:table data="${competitions}" id="l_com_saas_golf_domain_Competition" path="/competitions" z="YNQd0gS1aTjlOLR97pC8puD8NKU=">
+            <table:column id="c_com_saas_golf_domain_Competition_name" property="name" z="a5G0TXTcKG3lgt8gBZ4djIGbsQA="/>
+            <table:column date="true" dateTimePattern="${competition_datecreated_date_format}" id="c_com_saas_golf_domain_Competition_dateCreated" property="dateCreated" z="kNeHBTu5KLD++R/bKRf2mQ/cpNY="/>
+            <table:column id="c_com_saas_golf_domain_Competition_playerParticipants" property="playerParticipants" z="bOSdPICkUjF7NLwHxID2WZSXobg="/>
+        </table:table>
+    </page:list>
+</div>

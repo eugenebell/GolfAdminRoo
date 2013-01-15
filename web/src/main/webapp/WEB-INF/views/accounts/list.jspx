@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_saas_golf_domain_Account" items="${accounts}" z="vXRSu0TuUnoA+nodmmGAK/tmPBA=">
+        <table:table data="${accounts}" id="l_com_saas_golf_domain_Account" path="/accounts" z="uUqcq1Xwuj1K5IYgFrUiV8AOHQE=">
+            <table:column date="true" dateTimePattern="${account_datecreated_date_format}" id="c_com_saas_golf_domain_Account_dateCreated" property="dateCreated" z="f4OkmBEwU2eY5h32kh7/tNi82Tg="/>
+            <table:column id="c_com_saas_golf_domain_Account_title" property="title" z="oKMZIzogAAmTe4u6a1E7FLSAu18="/>
+            <table:column id="c_com_saas_golf_domain_Account_firstName" property="firstName" z="6JFE5zJj7YxbGVuHP8/fGYxKVlw="/>
+            <table:column id="c_com_saas_golf_domain_Account_lastName" property="lastName" z="aZ0iLIc6E8OzIVPyF8HN1izA9y8="/>
+            <table:column id="c_com_saas_golf_domain_Account_addressOne" property="addressOne" z="7jcizT0mMwBQaANvZrt2HFSIyrw="/>
+            <table:column id="c_com_saas_golf_domain_Account_addressTwo" property="addressTwo" z="4G2ydyRA1Wfqxr5djlKEYbc4/GI="/>
+        </table:table>
+    </page:list>
+</div>

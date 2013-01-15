@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_saas_golf_domain_GolfClub" object="${golfclub}" path="/golfclubs" z="qCwlSFX70I46HaSqMeSP0iGrc6k=">
+        <field:display field="golfClubName" id="s_com_saas_golf_domain_GolfClub_golfClubName" object="${golfclub}" z="9lJQV5Z71Kh7wE9gogJMNppo0WE="/>
+        <field:display date="true" dateTimePattern="${golfClub_datecreated_date_format}" field="dateCreated" id="s_com_saas_golf_domain_GolfClub_dateCreated" object="${golfclub}" z="y2b8TG0PuHA5dxwmwJTZVESfVZ0="/>
+        <field:display field="account" id="s_com_saas_golf_domain_GolfClub_account" object="${golfclub}" z="qnDJoMNtdHKT+Go1/KNmeXcLlVU="/>
+        <field:display field="golfCourse" id="s_com_saas_golf_domain_GolfClub_golfCourse" object="${golfclub}" z="a7/FBmGdmtTj7TfRa7PELDk7xRY="/>
+        <field:display field="competitions" id="s_com_saas_golf_domain_GolfClub_competitions" object="${golfclub}" z="4w0TonWTSgfFaULoPv9PwaHSg2k="/>
+        <field:display field="players" id="s_com_saas_golf_domain_GolfClub_players" object="${golfclub}" z="OQ7iiOXUfmgjPQQ0qiThXAXbhpk="/>
+    </page:show>
+</div>

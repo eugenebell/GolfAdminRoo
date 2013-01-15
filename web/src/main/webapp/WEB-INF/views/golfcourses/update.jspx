@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_saas_golf_domain_GolfCourse" modelAttribute="golfCourse" path="/golfcourses" versionField="none" z="Hv8oavy8wnEQ+220uz3lAJfAWA4=">
+        <field:textarea field="name" id="c_com_saas_golf_domain_GolfCourse_name" required="true" z="GOwDgsCuKFd9wxwimB4fraEdLy4="/>
+        <field:datetime dateTimePattern="${golfCourse_datecreated_date_format}" field="dateCreated" id="c_com_saas_golf_domain_GolfCourse_dateCreated" z="BZNY38Ss/XGTcDf0Lz+xAKgyBow="/>
+        <field:textarea field="logo" id="c_com_saas_golf_domain_GolfCourse_logo" required="true" z="mSDgE7DS1UvIVrf3oqzYUUgM6Xo="/>
+        <field:textarea field="address" id="c_com_saas_golf_domain_GolfCourse_address" required="true" z="mL/0n1zXVcrdYGMuj6XLc4fFIK0="/>
+        <field:input field="phoneNumbers" id="c_com_saas_golf_domain_GolfCourse_phoneNumbers" max="20" min="6" required="true" z="2DZfNJuAGeMlO+cUSsxe5xaADbI="/>
+        <field:input field="fax" id="c_com_saas_golf_domain_GolfCourse_fax" max="20" min="6" required="true" z="W5Fn6DRhNHs0VE5mQJckUV845lA="/>
+        <field:textarea field="email" id="c_com_saas_golf_domain_GolfCourse_email" required="true" validationMessageCode="field_invalid_email" z="fWLnISYvMmAXA0WvjDs0qPmoE3A="/>
+        <field:textarea field="website" id="c_com_saas_golf_domain_GolfCourse_website" required="true" z="JyByyHg19r/jnr/B4LYdDZw+SzY="/>
+        <field:input field="courseType" id="c_com_saas_golf_domain_GolfCourse_courseType" min="2" required="true" z="ErjBqYaHjZ8/igIUqNKh2KQt8wY="/>
+        <field:input field="holes" id="c_com_saas_golf_domain_GolfCourse_holes" max="18" min="9" required="true" validationMessageCode="field_invalid_integer" z="yXpN7LQuipSchgfOUS9J5y0ZS0k="/>
+        <field:input field="designedBy" id="c_com_saas_golf_domain_GolfCourse_designedBy" min="2" required="true" z="l/6tJB7TD91thE+j/nqMs08L+60="/>
+        <field:input field="yearBuilt" id="c_com_saas_golf_domain_GolfCourse_yearBuilt" max="2100" min="1550" required="true" validationMessageCode="field_invalid_integer" z="1GEj74BNJ2dVuIcuixPiUwyky4Y="/>
+        <field:checkbox field="guestsWelcome" id="c_com_saas_golf_domain_GolfCourse_guestsWelcome" z="dP6EshVuqkFHT4MfaM2UKgc3t/U="/>
+        <field:checkbox field="drivingRange" id="c_com_saas_golf_domain_GolfCourse_drivingRange" z="gD3N1YqiiEiKu06f66KvncMekqM="/>
+        <field:checkbox field="puttingGreen" id="c_com_saas_golf_domain_GolfCourse_puttingGreen" z="yGAGsqQZCtNLEBwV9mqohlmPjFI="/>
+        <field:checkbox field="rentalClubs" id="c_com_saas_golf_domain_GolfCourse_rentalClubs" z="lxDkMuOHwXjcN7CizqBklubK17Q="/>
+        <field:checkbox field="rentalGolfTrolley" id="c_com_saas_golf_domain_GolfCourse_rentalGolfTrolley" z="dtVO9NsrcMSV2V/9iWxw2tzGFF4="/>
+        <field:checkbox field="enabledGPS" id="c_com_saas_golf_domain_GolfCourse_enabledGPS" z="s4NdLttsuXVYVymuIR15irOpfsA="/>
+        <field:checkbox field="rentalGolfCart" id="c_com_saas_golf_domain_GolfCourse_rentalGolfCart" z="QYGtz3MY2hHKgLz94cT0K2TaRSY="/>
+        <field:checkbox field="proShop" id="c_com_saas_golf_domain_GolfCourse_proShop" z="UZaKMy67R81a4Kpk2HVTmcfFUss="/>
+        <field:checkbox field="teachingPro" id="c_com_saas_golf_domain_GolfCourse_teachingPro" z="LD4pwPOwpw76ROf9V7Del+xr+DQ="/>
+        <field:checkbox field="golfSchool" id="c_com_saas_golf_domain_GolfCourse_golfSchool" z="M0T/iL5xF14FYMWhRKOT7CK/VH0="/>
+        <field:checkbox field="bookingsWelcomed" id="c_com_saas_golf_domain_GolfCourse_bookingsWelcomed" z="SKDNaz/CB3Rf1DGvXXrlXYCR3yM="/>
+        <field:input field="priceRangeWeekdaysLow" id="c_com_saas_golf_domain_GolfCourse_priceRangeWeekdaysLow" required="true" validationMessageCode="field_invalid_number" z="k8nxzgRN6xsDw6KOZe/CxYsyyxc="/>
+        <field:input field="priceRangeWeekdaysHigh" id="c_com_saas_golf_domain_GolfCourse_priceRangeWeekdaysHigh" required="true" validationMessageCode="field_invalid_number" z="bQOw4KNtdBFwkYYumPmX0j6PvGA="/>
+        <field:input field="priceRangeWeekendsLow" id="c_com_saas_golf_domain_GolfCourse_priceRangeWeekendsLow" required="true" validationMessageCode="field_invalid_number" z="v7sEL6AkQ/AHPFr+Ia89aTj+fZw="/>
+        <field:input field="priceRangeWeekendsHigh" id="c_com_saas_golf_domain_GolfCourse_priceRangeWeekendsHigh" required="true" validationMessageCode="field_invalid_number" z="5XfljGFoO4mlXO7mOKpOFdKhkDc="/>
+        <field:input field="otherFacilities" id="c_com_saas_golf_domain_GolfCourse_otherFacilities" z="kVgrgYx1NLLR0/Ko8uDozS4EOjM="/>
+        <field:select field="scoreCard" id="c_com_saas_golf_domain_GolfCourse_scoreCard" itemValue="id" items="${scorecards}" path="/scorecards" required="true" z="ff2Ie6Eco+1B2jIpJhQLRa3fX28="/>
+    </form:update>
+</div>

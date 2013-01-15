@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_saas_golf_domain_GolfSociety" items="${golfsocietys}" z="j1VPbjlWa58bCFx8EPOAF0cOANI=">
+        <table:table data="${golfsocietys}" id="l_com_saas_golf_domain_GolfSociety" path="/golfsocietys" z="TSVWc6xd9xOBamy4tnZ0JfsQ2yk=">
+            <table:column id="c_com_saas_golf_domain_GolfSociety_societyName" property="societyName" z="Fw0sY1+nLyjN42iletPRWRxcObY="/>
+            <table:column date="true" dateTimePattern="${golfSociety_datecreated_date_format}" id="c_com_saas_golf_domain_GolfSociety_dateCreated" property="dateCreated" z="vqLZ/pRoyU3fsYlbGsrB8nUszkU="/>
+            <table:column id="c_com_saas_golf_domain_GolfSociety_account" property="account" z="Ygr+yctC3uVvvmUffz2NDefoyBU="/>
+            <table:column id="c_com_saas_golf_domain_GolfSociety_competitions" property="competitions" z="eH7hv9ESYNqR/jeJaLsGgRoCFs8="/>
+            <table:column id="c_com_saas_golf_domain_GolfSociety_players" property="players" z="6pNZSw76VwzsFnhBC6vTYPlkJqQ="/>
+        </table:table>
+    </page:list>
+</div>

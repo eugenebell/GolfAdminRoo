@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_saas_golf_domain_Golfer" object="${golfer}" path="/golfers" z="pql9NlaAwH9e5+jCo0R0H6Kok0c=">
+        <field:display date="true" dateTimePattern="${golfer_datecreated_date_format}" field="dateCreated" id="s_com_saas_golf_domain_Golfer_dateCreated" object="${golfer}" z="wYhU5WFK38xOxMVXKIBOYI3nhPM="/>
+        <field:display field="account" id="s_com_saas_golf_domain_Golfer_account" object="${golfer}" z="0nU4jNji4fcoWZdCQmgpUf+/12o="/>
+        <field:display field="players" id="s_com_saas_golf_domain_Golfer_players" object="${golfer}" z="/G6adbCp85CW14vbThhsOGzymAg="/>
+    </page:show>
+</div>

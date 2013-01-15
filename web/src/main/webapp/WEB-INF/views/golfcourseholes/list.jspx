@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_saas_golf_domain_GolfCourseHole" items="${golfcourseholes}" z="oDPUUyuIe8JJVFieR7MFlKU5SIk=">
+        <table:table data="${golfcourseholes}" id="l_com_saas_golf_domain_GolfCourseHole" path="/golfcourseholes" z="ZPKQS4jx+JzBQ1JhJNsZg3qGep4=">
+            <table:column id="c_com_saas_golf_domain_GolfCourseHole_holeNumber" property="holeNumber" z="1rAaAWzk1KGuPxOQFoKkUYv8wqs="/>
+            <table:column id="c_com_saas_golf_domain_GolfCourseHole_par" property="par" z="WNa1+QIv85+gG/u2gOATA3t/CoI="/>
+            <table:column id="c_com_saas_golf_domain_GolfCourseHole_holeIndex" property="holeIndex" z="freDR7Rwg889JPkkoCF6CN3zBPs="/>
+            <table:column id="c_com_saas_golf_domain_GolfCourseHole_scoreCard" property="scoreCard" z="KkxmjXnzf2Y2FfyZOXK6QtEht/Y="/>
+            <table:column id="c_com_saas_golf_domain_GolfCourseHole_name" property="name" z="czxznmQaIoYNAezqLD4sL119UuA="/>
+        </table:table>
+    </page:list>
+</div>

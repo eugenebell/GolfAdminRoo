@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_saas_golf_domain_Account" modelAttribute="account" path="/accounts" versionField="none" z="Om81JDfaxEcpwMxoV22xLCHi1s8=">
+        <field:datetime dateTimePattern="${account_datecreated_date_format}" field="dateCreated" id="c_com_saas_golf_domain_Account_dateCreated" z="oFGrLYNALFNJavWySZCY9GQUEOg="/>
+        <field:input field="title" id="c_com_saas_golf_domain_Account_title" max="8" min="2" required="true" z="LAJYkG2hjdEwF46WeYZlIGFh8LM="/>
+        <field:input field="firstName" id="c_com_saas_golf_domain_Account_firstName" max="30" min="2" required="true" z="A9rJr3Qkrt8q/5NoOVIBTC6+j9k="/>
+        <field:input field="lastName" id="c_com_saas_golf_domain_Account_lastName" max="30" min="2" required="true" z="ZdALcBEyIXgqCtt9J6AzB91xxrE="/>
+        <field:textarea field="addressOne" id="c_com_saas_golf_domain_Account_addressOne" required="true" z="OH5+HcnrBqBvUNuY15hJYLUBcWg="/>
+        <field:textarea field="addressTwo" id="c_com_saas_golf_domain_Account_addressTwo" required="true" z="LWrxHGgBZNPtwFaq0YSX9koMNOY="/>
+        <field:textarea field="addressThree" id="c_com_saas_golf_domain_Account_addressThree" required="true" z="tV7cibJGj9DFvkcPoh9N70Jx6qo="/>
+        <field:textarea field="town" id="c_com_saas_golf_domain_Account_town" required="true" z="ngCU1k7E+yxfYNcOr39zpgjfxOM="/>
+        <field:textarea field="county" id="c_com_saas_golf_domain_Account_county" required="true" z="L/dp5wQisg7qYnfzjEFkL0h7YsI="/>
+        <field:input field="mobile" id="c_com_saas_golf_domain_Account_mobile" max="20" min="2" required="true" z="yuzWDngJLRTNuEm0RbL527eRM1Y="/>
+        <field:input field="phone" id="c_com_saas_golf_domain_Account_phone" max="20" min="2" required="true" z="GvXW6gArNTJrqz009n4w4k0W9yY="/>
+        <field:input field="fax" id="c_com_saas_golf_domain_Account_fax" max="20" min="2" required="true" z="0QFrThLRrXPe6wbI6NZqzox3tu4="/>
+        <field:input field="email" id="c_com_saas_golf_domain_Account_email" max="30" min="2" required="true" validationMessageCode="field_invalid_email" z="gU3PhCT/IBzRD6MdNLROgODmHwE="/>
+    </form:update>
+</div>

@@ -1,0 +1,645 @@
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-25 21:15:45
+project --topLevelPackage com.saas.golf --packaging POM
+module create --moduleName core --topLevelPackage ~
+module focus --moduleName ~
+module create --moduleName web --topLevelPackage ~
+perform eclipse
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-25 21:24:55
+hint
+hint
+web mvc setup
+controller class --class ~.web.GolfScoreCardController
+logging setup --package WEB --level DEBUG
+web mvc all --package ~.web.scaffold
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-25 23:23:39
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-25 21:24:55
+mongo setup --databaseName golf-mongodb --cloudFoundry true
+entity mongo --class ~.domain.ScoreCard --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName teeColor --notNull true --sizeMin 2 --sizeMax 20
+field number --fieldName par --notNull true --type java.lang.Integer --max 80 --min 68
+field number --fieldName courseLengthYards --notNull true --type java.lang.Integer --min 1000
+field file --fieldName courseMap --contentType PNG  --notNull true
+// [failed] field set --fieldName golfCourseHoles --type ~.domain.GolfCourseHole 
+repository mongo --interface ~.repository.ScoreCardRepository --entity ~.domain.ScoreCard
+entity mongo --class ~.domain.GolfCourse --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName courseType --notNull true --sizeMin 2
+field number --fieldName holes --notNull true --type java.lang.Integer --max 18 --min 9
+field string --fieldName designedBy --notNull true --sizeMin 2
+field number --fieldName yearBuilt --notNull true --type java.lang.Integer --min 1550 --max 2100
+field boolean --fieldName guestsWelcome --notNull true
+field boolean --fieldName drivingRange --notNull true
+field boolean --fieldName puttingGreen --notNull true
+field boolean --fieldName rentalClubs --notNull true
+field boolean --fieldName rentalGolfTrolley --notNull true
+field boolean --fieldName enabledGPS --notNull true
+field boolean --fieldName rentalGolfCart --notNull true
+field boolean --fieldName proShop --notNull true
+field boolean --fieldName teachingPro --notNull true
+field boolean --fieldName golfSchool --notNull true
+field boolean --fieldName bookingsWelcomed --notNull true
+field number --fieldName priceRangeWeekdaysLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekdaysHigh --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsHigh --notNull true --type java.lang.Double
+field string --fieldName otherFacilities --notNull false
+field set --fieldName scoreCards --type ~.domain.ScoreCard --cardinality ONE_TO_MANY
+repository mongo --interface ~.repository.GolfCoursesRepository --entity ~.domain.GolfCourse
+entity mongo --class ~.domain.GolfInfo --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field file --fieldName logo --contentType PNG --notNull true
+field string --fieldName address --notNull true --sizeMin 2 --sizeMax 250
+field string --fieldName phoneNumbers --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName website --notNull true --sizeMin 2 --sizeMax 40
+field set --fieldName golfCourses --type ~.domain.GolfCourse --cardinality ONE_TO_ONE
+repository mongo --interface ~.repository.GolfInfoRepository --entity ~.domain.GolfInfo
+entity mongo --class ~.domain.Account --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName title --notNull true --sizeMin 2 --sizeMax 8
+field string --fieldName firstName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName lastName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName addressOne --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressTwo --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressThree --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName town --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName county --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName mobile --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName phone --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 30
+repository mongo --interface ~.repository.AccountRepository --entity ~.domain.Account
+entity mongo --class ~.domain.GolfCourseHole --testAutomatically
+field number --fieldName holeNumber --notNull true --type java.lang.Integer --max 18 --min 1
+field number --fieldName par --notNull true --type java.lang.Integer --max 6 --min 3
+field number --fieldName holeIndex --notNull true --type java.lang.Integer --max 18 --min 1
+repository mongo --interface ~.repository.GolfCourseHoleRepository --entity ~.domain.GolfCourseHole
+entity mongo --class ~.domain.GolfRound --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field boolean --fieldName inProgress --notNull true
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+repository mongo --interface ~.repository.GolfRoundRepository --entity ~.domain.GolfRound
+entity mongo --class ~.domain.Player --testAutomatically
+field string --fieldName playerName --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field number --fieldName handicap --notNull true --type double
+field set --fieldName golfRounds --type ~.domain.GolfRound --cardinality ONE_TO_MANY
+repository mongo --interface ~.repository.PlayerRepository --entity ~.domain.Player
+entity mongo --class ~.domain.GolfClub --testAutomatically
+field string --fieldName golfClubName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+// [failed] field reference --fieldName golfCourse --notNull true --type ~.domain.GolfCourses
+// [failed] field set --fieldName competitions --type ~.domain.Competition
+field reference --fieldName golfCourse --notNull true --type ~.domain.GolfCourse
+// [failed] field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfClubRepository --entity ~.domain.GolfClub
+entity mongo --class ~.domain.PlayerParticipant --testAutomatically
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+field reference --fieldName player --notNull true --type ~.domain.Player
+repository mongo --interface ~.repository.CompetitionRepository --entity ~.domain.Competition
+entity mongo --class ~.domain.Competition --testAutomatically
+field string --fieldName name --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field set --fieldName playerParticipants --type ~.domain.PlayerParticipant
+repository mongo --interface ~.repository.CompetitionRepository --entity ~.domain.Competition
+focus --class ~.domain.GolfClub
+field set --fieldName competitions --type ~.domain.Competition
+entity mongo --class ~.domain.GolfSociety --testAutomatically
+field string --fieldName societyName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfSocietyRepository --entity ~.domain.GolfSociety
+entity mongo --class ~.domain.Golfer  --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName players --type ~.domain.Player
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-25 23:23:43
+
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-25 23:24:05
+module focus --moduleName core 
+module focus --moduleName web 
+web mvc all --package com.saas.golf.web.scaffold
+perform package
+module focus --moduleName ~
+perform package
+download status
+download accept terms of use
+module focus --moduleName web 
+perform eclipse
+module focus --moduleName ~
+perform eclipse
+module focus --moduleName core 
+perform eclipse
+module focus --moduleName ~
+perform eclipse
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-25 23:45:52
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-25 23:57:06
+perform eclipse
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-26 00:08:03
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-26 00:08:44
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-26 20:27:54
+perform package 
+hint
+perform package 
+perform clean 
+perform package 
+perform eclipse
+hint
+perform package 
+perform package 
+perform package 
+pgp automatic trust
+addon install bundle --bundleSymbolicName org.springframework.roo.addon.cloud.foundry
+pgp list trusted keys
+addon list 
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml.zip
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.cloud.foundry
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml.zip
+addon install id --searchResultId 70
+pgp automatic trust
+// [failed] cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+// [failed] cloud foundry login --email eugene_bell@yahoo.com --password kestrel25
+// [failed] cloud foundry login --email eugene_bell@yahoo.com --password kestrel
+cloud foundry login --email eugene_bell@yahoo.com --password ZPOjMYCQ
+cloud foundry info 
+cloud foundry list apps 
+cloud foundry list instances --appName AppDevFrameworkProject
+cloud foundry list instances --appName AppDevFrameworkProject
+cloud foundry list services
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry list services
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war 
+cloud foundry list apps 
+cloud foundry bind service --serviceName golf-mongodb --appName golfservice
+cloud foundry list apps
+cloud foundry update app memory --appName golfservice
+cloud foundry start app --appName golfservice
+perform clean 
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-28 14:45:17
+module focus --moduleName core 
+entity mongo --class ~.domain.GolfCourseHole --testAutomatically
+field number --fieldName holeNumber --notNull true --type java.lang.Integer --max 18 --min 1
+field number --fieldName par --notNull true --type java.lang.Integer --max 6 --min 3
+field number --fieldName holeIndex --notNull true --type java.lang.Integer --max 18 --min 1
+repository mongo --interface ~.repository.GolfCourseHoleRepository --entity ~.domain.GolfCourseHole
+entity mongo --class ~.domain.ScoreCard --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName teeColor --notNull true --sizeMin 2 --sizeMax 20
+field number --fieldName par --notNull true --type java.lang.Integer --max 80 --min 68
+field number --fieldName courseLengthYards --notNull true --type java.lang.Integer --min 1000
+field file --fieldName courseMap --contentType PNG  --notNull true
+field set --fieldName golfCourseHoles --type ~.domain.GolfCourseHole 
+repository mongo --interface ~.repository.ScoreCardRepository --entity ~.domain.ScoreCard
+entity mongo --class ~.domain.GolfCourse --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName courseType --notNull true --sizeMin 2
+field number --fieldName holes --notNull true --type java.lang.Integer --max 18 --min 9
+field string --fieldName designedBy --notNull true --sizeMin 2
+field number --fieldName yearBuilt --notNull true --type java.lang.Integer --min 1550 --max 2100
+field boolean --fieldName guestsWelcome --notNull true
+field boolean --fieldName drivingRange --notNull true
+field boolean --fieldName puttingGreen --notNull true
+field boolean --fieldName rentalClubs --notNull true
+field boolean --fieldName rentalGolfTrolley --notNull true
+field boolean --fieldName enabledGPS --notNull true
+field boolean --fieldName rentalGolfCart --notNull true
+field boolean --fieldName proShop --notNull true
+field boolean --fieldName teachingPro --notNull true
+field boolean --fieldName golfSchool --notNull true
+field boolean --fieldName bookingsWelcomed --notNull true
+field number --fieldName priceRangeWeekdaysLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekdaysHigh --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsHigh --notNull true --type java.lang.Double
+field string --fieldName otherFacilities --notNull false
+field set --fieldName scoreCards --type ~.domain.ScoreCard --cardinality ONE_TO_MANY 
+repository mongo --interface ~.repository.GolfCoursesRepository --entity ~.domain.GolfCourse
+entity mongo --class ~.domain.GolfInfo --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field file --fieldName logo --contentType PNG --notNull true
+field string --fieldName address --notNull true --sizeMin 2 --sizeMax 250
+field string --fieldName phoneNumbers --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName website --notNull true --sizeMin 2 --sizeMax 40
+field set --fieldName golfCourses --type ~.domain.GolfCourse --cardinality ONE_TO_ONE
+repository mongo --interface ~.repository.GolfInfoRepository --entity ~.domain.GolfInfo
+entity mongo --class ~.domain.Account --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName title --notNull true --sizeMin 2 --sizeMax 8
+field string --fieldName firstName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName lastName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName addressOne --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressTwo --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressThree --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName town --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName county --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName mobile --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName phone --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 30
+repository mongo --interface ~.repository.AccountRepository --entity ~.domain.Account
+entity mongo --class ~.domain.GolfRound --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field boolean --fieldName inProgress --notNull true
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+repository mongo --interface ~.repository.GolfRoundRepository --entity ~.domain.GolfRound
+entity mongo --class ~.domain.Player --testAutomatically
+field string --fieldName playerName --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field number --fieldName handicap --notNull true --type double
+field set --fieldName golfRounds --type ~.domain.GolfRound --cardinality ONE_TO_MANY
+repository mongo --interface ~.repository.PlayerRepository --entity ~.domain.Player
+entity mongo --class ~.domain.PlayerParticipant --testAutomatically
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+field reference --fieldName player --notNull true --type ~.domain.Player
+repository mongo --interface ~.repository.PlayerParticipantRepository --entity ~.domain.PlayerParticipant
+entity mongo --class ~.domain.Competition --testAutomatically
+field string --fieldName name --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field set --fieldName playerParticipants --type ~.domain.PlayerParticipant
+repository mongo --interface ~.repository.CompetitionRepository --entity ~.domain.Competition
+entity mongo --class ~.domain.GolfClub --testAutomatically
+field string --fieldName golfClubName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field reference --fieldName golfCourse --notNull true --type ~.domain.GolfCourse
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfClubRepository --entity ~.domain.GolfClub
+entity mongo --class ~.domain.GolfSociety --testAutomatically
+field string --fieldName societyName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfSocietyRepository --entity ~.domain.GolfSociety
+entity mongo --class ~.domain.Golfer --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolferRepository --entity ~.domain.Golfer
+// script C:\BitBucket\golf-saas\mongodb-roo
+module focus --moduleName web
+web mvc all --package ~.web.scaffold
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+perform package 
+module focus --moduleName ~ 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+logging setup --package WEB --level DEBUG
+cloud foundry restart app --appName golfservice
+focus --class core|~.domain.GolfCourseHole 
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+perform package 
+module focus --moduleName ~ 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform clean
+focus --class core|~.domain.GolfCourseHole 
+// [failed] field reference --fieldName scoreCard --type ~.domain.ScoreCard
+module focus --moduleName ~ 
+perform clean
+module focus --moduleName web
+perform clean
+module focus --moduleName core
+perform clean
+module focus --moduleName ~ 
+perform clean
+perform package 
+perform clean
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+hint
+cloud foundry restart app --appName golfservice
+focus --class core|~.domain.GolfCourseHole 
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 10
+module focus --moduleName ~
+perform package 
+perform clean
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+cloud foundry restart app --appName golfservice
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 20 --class core|~.domain.ScoreCard
+perform package
+module focus --moduleName ~
+perform package
+module focus --moduleName core 
+// [failed] entity mongo --class ~.domain.GolfCourse --testAutomatically
+entity mongo --class ~.domain.GolfCourse --testAutomatically
+// [failed] field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+// [failed] field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+// [failed] field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+// [failed] field file --fieldName logo --contentType PNG --notNull true
+// [failed] field file --fieldName logo --contentType PNG --notNull true
+// [failed] field file --fieldName logo --contentType PNG --notNull
+// [failed] field file --fieldName logo --contentType PNG --notNull
+focus --class ~.domain.GolfCourse
+// [failed] field file --fieldName logo --contentType PNG --notNull true
+// [failed] field string --fieldName address --notNull true --sizeMin 2 --sizeMax 250
+module focus --moduleName ~
+module focus --moduleName core 
+// [failed] entity mongo --class ~.domain.GolfCourse --testAutomatically
+entity mongo --class ~.domain.GolfCourse --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field file --fieldName logo --contentType PNG --notNull true
+field string --fieldName address --notNull true --sizeMin 2 --sizeMax 250
+field string --fieldName phoneNumbers --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName website --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName courseType --notNull true --sizeMin 2
+field number --fieldName holes --notNull true --type java.lang.Integer --max 18 --min 9
+field string --fieldName designedBy --notNull true --sizeMin 2
+field number --fieldName yearBuilt --notNull true --type java.lang.Integer --min 1550 --max 2100
+field boolean --fieldName guestsWelcome --notNull true
+field boolean --fieldName drivingRange --notNull true
+field boolean --fieldName puttingGreen --notNull true
+field boolean --fieldName rentalClubs --notNull true
+field boolean --fieldName rentalGolfTrolley --notNull true
+field boolean --fieldName enabledGPS --notNull true
+field boolean --fieldName rentalGolfCart --notNull true
+field boolean --fieldName proShop --notNull true
+field boolean --fieldName teachingPro --notNull true
+field boolean --fieldName golfSchool --notNull true
+field boolean --fieldName bookingsWelcomed --notNull true
+field number --fieldName priceRangeWeekdaysLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekdaysHigh --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsHigh --notNull true --type java.lang.Double
+field string --fieldName otherFacilities --notNull false
+field set --fieldName golfCourses --type ~.domain.GolfCourse --cardinality ONE_TO_ONE
+field set --fieldName scoreCards --type ~.domain.ScoreCard --cardinality ONE_TO_MANY 
+repository mongo --interface ~.repository.GolfCoursesRepository --entity ~.domain.GolfCourse
+module focus --moduleName ~
+module focus --moduleName web 
+// [failed] web mvc all --package ~.web.scaffold
+module focus --moduleName ~
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+cloud foundry restart app --appName golfservice
+module focus --moduleName web 
+// [failed] web mvc all --package ~.web.scaffold
+module focus --moduleName web 
+module focus --moduleName ~
+module focus --moduleName web 
+// [failed] web mvc all --package ~.web.scaffold
+// [failed] web mvc all --package ~.web.scaffold
+module focus --moduleName ~
+module focus --moduleName web 
+web mvc setup
+// [failed] web mvc all --package ~.web.scaffold
+perform clean 
+// [failed] web mvc all --package ~.web.scaffold
+module focus --moduleName ~
+module focus --moduleName web 
+web mvc setup
+module focus --moduleName ~
+module focus --moduleName web 
+// [failed] web mvc all --package ~.web.scaffold
+module focus --moduleName ~
+perform clean 
+module focus --moduleName web 
+// [failed] web mvc all --package ~.web.scaffold
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-28 16:54:49
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-28 16:55:05
+module focus --moduleName web 
+web mvc all --package ~.web.scaffold
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+module focus --moduleName ~ 
+perform package 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+module focus --moduleName web 
+addon list 
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-28 22:47:52
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-28 22:48:05
+addon search json
+addon info id --searchResultId 01
+module focus --moduleName web 
+web mvc all --package ~.web.scaffold
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-28 23:07:55
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-28 23:33:02
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-29 01:45:49
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-29 12:00:22
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-29 22:13:57
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-02 22:26:21
+perform package
+cloud foundry login  --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+cloud foundry restart app --appName golfservice
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-07 00:41:37
+perform package 
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-07 00:43:20
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-07 00:43:38
+perform clean 
+perform package 
+perform assembly 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-07 00:48:46
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-07 22:46:19
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform package 
+perform package 
+perform package 
+perform package 
+perform package 
+perform package 
+perform package 
+help
+focus --class core|~.domain.GolfCourse
+help
+help
+help
+hint
+hint finder
+module focus --moduleName ~
+module focus --moduleName core
+focus --class ~.domain.GolfCourse
+module focus --moduleName web 
+focus --class ~.scaffold.GolfCourseController 
+help
+module focus --moduleName ~
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-08 00:44:44
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-08 00:45:13
+focus --class core|~.domain.Account
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-08 00:49:52
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-08 00:53:53
+perform clean
+perform package 
+focus --class core|~.domain.GolfCourseDataOnDemand
+focus --class core|~.domain.GolfCourse
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-08 01:00:45
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-08 21:01:43
+perform package 
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-09 00:07:28
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-10 00:23:01
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-10 00:45:31
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-10 20:03:05
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform package 
+perform clean 
+perform package 
+perform package 
+perform package 
+perform package 
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+exit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-10 21:04:55
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-10 23:13:31
+perform package 
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform clean
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+web mvc setup
+module focus --moduleName web 
+web mvc update tags
+web mvc scaffold --class ~.scaffold.GolfCourseController --backingType core|~.domain.GolfCourse
+web mvc scaffold --class ~.scaffold.ScoreCardController --backingType core|~.domain.ScoreCard
+module focus --moduleName ~ 
+perform package 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-11 00:46:00
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-11 17:02:58
+module focus --moduleName web 
+web mvc scaffold --class ~.scaffold.GolfCourseController --backingType core|~.domain.GolfCourse
+web mvc all --package com.saas.golf.domain
+ web mvc finder all
+module focus --moduleName ~ 
+module focus --moduleName web 
+ web mvc finder all
+perform package 
+module focus --moduleName ~ 
+perform package 
+perform package 
+perform package 
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml.zip
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.cloud.foundry
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml.zip
+addon install id --searchResultId 01
+exit
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-02-11 17:24:36
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-11 17:27:12
+perform package 
+addon info id --searchResultId 01
+exit
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-02-11 17:30:12
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-11 17:30:37
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+hint
+help
+addon info id 01
+addon info id --searchResultId 01
+addon install id --searchResultId 01
+addon list
+addon info id --searchResultId 1
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform package 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-02-12 00:51:56
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-02-12 12:34:57
+perform package 
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war
+perform package 
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war

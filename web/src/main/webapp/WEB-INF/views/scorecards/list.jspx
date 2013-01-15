@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_saas_golf_domain_ScoreCard" items="${scorecards}" z="czFcyxiaAspRhRjp4MOcdKK8gB8=">
+        <table:table data="${scorecards}" id="l_com_saas_golf_domain_ScoreCard" path="/scorecards" z="KpjqPUZLnjaVkJDBFp2ExaONZAo=">
+            <table:column date="true" dateTimePattern="${scoreCard_datecreated_date_format}" id="c_com_saas_golf_domain_ScoreCard_dateCreated" property="dateCreated" z="dF7gDGJr8YMfvsRw4Tzqhom5yoA="/>
+            <table:column id="c_com_saas_golf_domain_ScoreCard_teeColor" property="teeColor" z="aEb1w3KchTl2N3yBocwIxLpwWEY="/>
+            <table:column id="c_com_saas_golf_domain_ScoreCard_par" property="par" z="BN4cwo/MJIdzw/ZWOP9YuivTHYI="/>
+            <table:column id="c_com_saas_golf_domain_ScoreCard_name" property="name" z="iOWEgwEL7D2kvs126mTD7mfguLc="/>
+            <table:column id="c_com_saas_golf_domain_ScoreCard_courseLengthMeters" property="courseLengthMeters" z="xK4mMRNhwB5HsjeEIRK1bq8ot2s="/>
+            <table:column id="c_com_saas_golf_domain_ScoreCard_courseLengthYards" property="courseLengthYards" z="XBHbzfnFPFUtKEtD1gaR5o9+XGc="/>
+        </table:table>
+    </page:list>
+</div>

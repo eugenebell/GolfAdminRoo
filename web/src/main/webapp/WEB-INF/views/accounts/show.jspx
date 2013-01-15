@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_saas_golf_domain_Account" object="${account}" path="/accounts" z="R3qG/jSdeoumAHNYc898oKnHr7M=">
+        <field:display date="true" dateTimePattern="${account_datecreated_date_format}" field="dateCreated" id="s_com_saas_golf_domain_Account_dateCreated" object="${account}" z="t0MKWA3oXH+RdfGqXmmPsd50j5M="/>
+        <field:display field="title" id="s_com_saas_golf_domain_Account_title" object="${account}" z="qam82TBAAK5U5B6nxjGH9fdanVQ="/>
+        <field:display field="firstName" id="s_com_saas_golf_domain_Account_firstName" object="${account}" z="8AkK9+Ctwl5NqqkEv/b9AqZoyaY="/>
+        <field:display field="lastName" id="s_com_saas_golf_domain_Account_lastName" object="${account}" z="cOt3jViiXzGNMrb6DtY+Ffaabnk="/>
+        <field:display field="addressOne" id="s_com_saas_golf_domain_Account_addressOne" object="${account}" z="GZA47H81506EclvDwbJa1sovwwA="/>
+        <field:display field="addressTwo" id="s_com_saas_golf_domain_Account_addressTwo" object="${account}" z="rhsgJ5iOBfP5aX5GWlfNLu8tOpE="/>
+        <field:display field="addressThree" id="s_com_saas_golf_domain_Account_addressThree" object="${account}" z="zzts1oMgzmJi9WOonUPjj8N9Q0A="/>
+        <field:display field="town" id="s_com_saas_golf_domain_Account_town" object="${account}" z="frz1uplg+sEHwH4NAkzvgi2woko="/>
+        <field:display field="county" id="s_com_saas_golf_domain_Account_county" object="${account}" z="2X7jMYTRPiiVRxsSByqpzPPggu0="/>
+        <field:display field="mobile" id="s_com_saas_golf_domain_Account_mobile" object="${account}" z="PWoqKwwAX8u0M6DFBdLTdrEVHCM="/>
+        <field:display field="phone" id="s_com_saas_golf_domain_Account_phone" object="${account}" z="Nrvv9HBX1NTvqd82Mx8CS2dxFAQ="/>
+        <field:display field="fax" id="s_com_saas_golf_domain_Account_fax" object="${account}" z="UVdSqu6Krm5Fonv2t4bddnrnerg="/>
+        <field:display field="email" id="s_com_saas_golf_domain_Account_email" object="${account}" z="K4wUso6YA0ON1dhZ530rtu96rPs="/>
+    </page:show>
+</div>

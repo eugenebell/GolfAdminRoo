@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_account" z="/ObionklNVMvfxU5oSj2hEUJNu0=">
+            <menu:item id="i_account_new" messageCode="global_menu_new" url="/accounts?form" z="7ISq6pJsfrDJexgk1yAmzNiIcp8="/>
+            <menu:item id="i_account_list" messageCode="global_menu_list" url="/accounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="VeXZsM9n5bR9ZvhjdYhrVsG24uw="/>
+        </menu:category>
+        <menu:category id="c_golfcourse" z="wbRLxnp8OSKKuSkFcphcE0jWFFo=">
+            <menu:item id="i_golfcourse_new" messageCode="global_menu_new" url="/golfcourses?form" z="x+gsJH94M6XT2ImnP2ViG3QvZmo="/>
+            <menu:item id="i_golfcourse_list" messageCode="global_menu_list" url="/golfcourses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="vIXSU2YX1yom9uCImGnrWL6plQ4="/>
+        </menu:category>
+        <menu:category id="c_scorecard" z="95qHeKp6acuF5j+ICKbPWvy/zgA=">
+            <menu:item id="i_scorecard_new" messageCode="global_menu_new" url="/scorecards?form" z="JQfVEOOYH7eItPYIa8V0UJAOE/o="/>
+            <menu:item id="i_scorecard_list" messageCode="global_menu_list" url="/scorecards?page=1&amp;size=${empty param.size ? 10 : param.size}" z="F4BEC4IlJBTRTd7WAlFgx6npB1E="/>
+        </menu:category>
+        <menu:category id="c_golfround" z="ueS5M2KPVcxMsH6Fvb26Jv4nxq4=">
+            <menu:item id="i_golfround_new" messageCode="global_menu_new" url="/golfrounds?form" z="x4IyiO2somjap7bsovfgwMn8fUA="/>
+            <menu:item id="i_golfround_list" messageCode="global_menu_list" url="/golfrounds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nEhWECXQXyFplbLtEYiQNl8i1bw="/>
+        </menu:category>
+        <menu:category id="c_player" z="cK8M0OPX/OW66GiF/SNgS8vWpjs=">
+            <menu:item id="i_player_new" messageCode="global_menu_new" url="/players?form" z="xCwCGj+PbS/WEOyltkUd6nZ4y4g="/>
+            <menu:item id="i_player_list" messageCode="global_menu_list" url="/players?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZCszNjmNvFu/+xYfzxw5lZP3Y2o="/>
+        </menu:category>
+        <menu:category id="c_golfer" z="l0VZk0xViQUg3iFHBlO2LoZSqRQ=">
+            <menu:item id="i_golfer_new" messageCode="global_menu_new" url="/golfers?form" z="cE2HgVoQk4luUybD8CbCqAuzyq0="/>
+            <menu:item id="i_golfer_list" messageCode="global_menu_list" url="/golfers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="EM1fB3Nt05EQdmha/Z97WZYHl/U="/>
+        </menu:category>
+        <menu:category id="c_golfclub" z="VzIJF/ZcVsCEqBot24wv/qQ/YCg=">
+            <menu:item id="i_golfclub_new" messageCode="global_menu_new" url="/golfclubs?form" z="jQs9LOr9cW3vkOvACscTFsOR3r4="/>
+            <menu:item id="i_golfclub_list" messageCode="global_menu_list" url="/golfclubs?page=1&amp;size=${empty param.size ? 10 : param.size}" z="oLbJQrDDncwfNxSOdu+1ZjuAJBc="/>
+        </menu:category>
+        <menu:category id="c_golfsociety" z="jCxtqz92g79b7jk/yIwMR0V4GKY=">
+            <menu:item id="i_golfsociety_new" messageCode="global_menu_new" url="/golfsocietys?form" z="IYt9vV9Qm0N5tWpP3s0T3vG/mPI="/>
+            <menu:item id="i_golfsociety_list" messageCode="global_menu_list" url="/golfsocietys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="O7dxvHTnmAPusr+M3100HGY0bZM="/>
+        </menu:category>
+        <menu:category id="c_playerparticipant" z="EWt4wSlNu5rfPoYzRqE1JTaUhno=">
+            <menu:item id="i_playerparticipant_new" messageCode="global_menu_new" url="/playerparticipants?form" z="NNw17xX8QciCe3IbNwCJAkkoSw8="/>
+            <menu:item id="i_playerparticipant_list" messageCode="global_menu_list" url="/playerparticipants?page=1&amp;size=${empty param.size ? 10 : param.size}" z="eJM2cVZBP9NxLPNO2tvTjQ8ovnI="/>
+        </menu:category>
+        <menu:category id="c_golfcoursehole" z="EFhLriyNV1KWzw3nWCIPJKD7byY=">
+            <menu:item id="i_golfcoursehole_new" messageCode="global_menu_new" url="/golfcourseholes?form" z="sgqASTigxxCBsBP2W1M6Z16eDfs="/>
+            <menu:item id="i_golfcoursehole_list" messageCode="global_menu_list" url="/golfcourseholes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="BXzio7/MAyvC0Ikd80UqddsOSuc="/>
+        </menu:category>
+        <menu:category id="c_competition" z="3o4yHluQ9XIhyw6c4vcZI1oWpss=">
+            <menu:item id="i_competition_new" messageCode="global_menu_new" url="/competitions?form" z="ra45JUnDZvDLqqs+g5BL0NlEK6k="/>
+            <menu:item id="i_competition_list" messageCode="global_menu_list" url="/competitions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="+6VEWqszkUUVkknGJ3mQLq+rR1I="/>
+        </menu:category>
+    </menu:menu>
+</div>

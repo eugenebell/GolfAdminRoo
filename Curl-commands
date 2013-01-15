@@ -1,0 +1,28 @@
+curl -i -H "Accept: application/json" http://golfservice.cloudfoundry.com/golfcourses
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 29 Jan 2012 13:34:32 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Keep-Alive: timeout=20
+Content-Length: 640
+
+[{"address":"cjych djfkk gg g","bookingsWelcomed":false,"courseType":"grass","dateCreated":1327795200000,"designedBy":"bob",
+"drivingRange":false,"email":"eytyt@jh.com","enabledGPS":true,"fax":"08799656121","golfSchool":false,"guestsWelcome":true,
+"holes":18,"id":24493515222176001673149689765,"name":"course1","otherFacilities":"","phoneNumbers":"08798888888",
+"priceRangeWeekdaysHigh":65.0,"priceRangeWeekdaysLow":55.0,"priceRangeWeekendsHigh":90.0,"priceRangeWeekendsLow":80.0,
+"proShop":true,"puttingGreen":true,"rentalClubs":false,"rentalGolfCart":false,"rentalGolfTrolley":false,"teachingPro":true,
+"website":"jfhvf.com","yearBuilt":1990}]
+
+curl -i -H "Accept: application/json" http://golfservice.cloudfoundry.com/scorecards
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 29 Jan 2012 00:20:25 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Keep-Alive: timeout=20
+Content-Length: 130
+
+[{"courseLengthYards":5210,"dateCreated":1326931200000,"id":24492913449539870386286290729,"name":null,"par":72,"teeColor":"Blue"}]

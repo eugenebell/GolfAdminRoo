@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_saas_golf_domain_GolfCourse" object="${golfcourse}" path="/golfcourses" z="RmLMRUpiTr276oE0mzfcBxPnFKI=">
+        <field:display field="name" id="s_com_saas_golf_domain_GolfCourse_name" object="${golfcourse}" z="wVFFMW7z2sWqqxMkvHT3pCTDUUw="/>
+        <field:display date="true" dateTimePattern="${golfCourse_datecreated_date_format}" field="dateCreated" id="s_com_saas_golf_domain_GolfCourse_dateCreated" object="${golfcourse}" z="ztWykR1lyYxPLbnsTpMuPxmBnz4="/>
+        <field:display field="logo" id="s_com_saas_golf_domain_GolfCourse_logo" object="${golfcourse}" z="DyQ4Dw3OOuKqVXD7W398LifYbLc="/>
+        <field:display field="address" id="s_com_saas_golf_domain_GolfCourse_address" object="${golfcourse}" z="aX135jxkH5QoEk2CAs/r7zN2MrM="/>
+        <field:display field="phoneNumbers" id="s_com_saas_golf_domain_GolfCourse_phoneNumbers" object="${golfcourse}" z="5GM2s4A+Gisx6+VAFUZgmIeawgI="/>
+        <field:display field="fax" id="s_com_saas_golf_domain_GolfCourse_fax" object="${golfcourse}" z="YRB6dImQIUBvWjH+LJSLs2pGq2Y="/>
+        <field:display field="email" id="s_com_saas_golf_domain_GolfCourse_email" object="${golfcourse}" z="TiI4ecPmYrFMWe3EXL3gON2ydiA="/>
+        <field:display field="website" id="s_com_saas_golf_domain_GolfCourse_website" object="${golfcourse}" z="+FAcF4Et7bBldND3ra4jFRwBeT8="/>
+        <field:display field="courseType" id="s_com_saas_golf_domain_GolfCourse_courseType" object="${golfcourse}" z="g/dnESrdqvLS9PQVz/PdD4gpQXU="/>
+        <field:display field="holes" id="s_com_saas_golf_domain_GolfCourse_holes" object="${golfcourse}" z="JQV4ApxpTMRFO0okIu+x3EH1fiQ="/>
+        <field:display field="designedBy" id="s_com_saas_golf_domain_GolfCourse_designedBy" object="${golfcourse}" z="Fiv7nVZ/nl7hjSSj2QjBty9DB5Y="/>
+        <field:display field="yearBuilt" id="s_com_saas_golf_domain_GolfCourse_yearBuilt" object="${golfcourse}" z="COyNOCDwCef/10WHwc0x6wZC5oU="/>
+        <field:display field="guestsWelcome" id="s_com_saas_golf_domain_GolfCourse_guestsWelcome" object="${golfcourse}" z="Em7VyU/FKjzhBdF1qSULMyHiJJE="/>
+        <field:display field="drivingRange" id="s_com_saas_golf_domain_GolfCourse_drivingRange" object="${golfcourse}" z="K+NS9GJAGChF61bkctna7blGP1Q="/>
+        <field:display field="puttingGreen" id="s_com_saas_golf_domain_GolfCourse_puttingGreen" object="${golfcourse}" z="mYaEXf0IrTCtNH7K+oYpCy5vwkA="/>
+        <field:display field="rentalClubs" id="s_com_saas_golf_domain_GolfCourse_rentalClubs" object="${golfcourse}" z="P/NQr7F9Dy8a0uR1ksU9d0A0T7I="/>
+        <field:display field="rentalGolfTrolley" id="s_com_saas_golf_domain_GolfCourse_rentalGolfTrolley" object="${golfcourse}" z="IvtzwMddxdDIxD7CdTMjLQUqkv0="/>
+        <field:display field="enabledGPS" id="s_com_saas_golf_domain_GolfCourse_enabledGPS" object="${golfcourse}" z="vzmem8qKPQzdT9ttj9sHxAzyWpw="/>
+        <field:display field="rentalGolfCart" id="s_com_saas_golf_domain_GolfCourse_rentalGolfCart" object="${golfcourse}" z="6WHxGdFEy7MYfaAid4VkZHs8kNI="/>
+        <field:display field="proShop" id="s_com_saas_golf_domain_GolfCourse_proShop" object="${golfcourse}" z="N0FBUYY7TBkL+Uwjo2Yk258vQzg="/>
+        <field:display field="teachingPro" id="s_com_saas_golf_domain_GolfCourse_teachingPro" object="${golfcourse}" z="ubqHCkoqo5O/PawfXu+ucPIa49c="/>
+        <field:display field="golfSchool" id="s_com_saas_golf_domain_GolfCourse_golfSchool" object="${golfcourse}" z="XL+H8iP4EGu5EtIJFbySbOk2csM="/>
+        <field:display field="bookingsWelcomed" id="s_com_saas_golf_domain_GolfCourse_bookingsWelcomed" object="${golfcourse}" z="1GZ6KchyEXtajJrRMuAsFY9w/JQ="/>
+        <field:display field="priceRangeWeekdaysLow" id="s_com_saas_golf_domain_GolfCourse_priceRangeWeekdaysLow" object="${golfcourse}" z="IRJTKrQ6J3f+0kYGwH6yc+jU5hc="/>
+        <field:display field="priceRangeWeekdaysHigh" id="s_com_saas_golf_domain_GolfCourse_priceRangeWeekdaysHigh" object="${golfcourse}" z="/1B8pVljeoq6lQBAQplLiwtWeRI="/>
+        <field:display field="priceRangeWeekendsLow" id="s_com_saas_golf_domain_GolfCourse_priceRangeWeekendsLow" object="${golfcourse}" z="mbeoA2eBGxrxnmMoXPI3iQfBe7U="/>
+        <field:display field="priceRangeWeekendsHigh" id="s_com_saas_golf_domain_GolfCourse_priceRangeWeekendsHigh" object="${golfcourse}" z="HOQwAeK6NNmArq8gW2GOHQDufdE="/>
+        <field:display field="otherFacilities" id="s_com_saas_golf_domain_GolfCourse_otherFacilities" object="${golfcourse}" z="bZvcgeOBAm+AwC6FefPEIBGEgRo="/>
+        <field:display field="scoreCard" id="s_com_saas_golf_domain_GolfCourse_scoreCard" object="${golfcourse}" z="DyYDIQ7Npt9+RaDIN0UUZITF3Go="/>
+    </page:show>
+</div>

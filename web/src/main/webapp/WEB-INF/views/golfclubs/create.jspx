@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_saas_golf_domain_GolfClub" modelAttribute="golfClub" path="/golfclubs" render="${empty dependencies}" z="VUK1OphleEgqAfQ5WCCPHfeHxBs=">
+        <field:textarea field="golfClubName" id="c_com_saas_golf_domain_GolfClub_golfClubName" required="true" z="W+eCpDJZDAXt0I3O8Xdup6g2mt0="/>
+        <field:datetime dateTimePattern="${golfClub_datecreated_date_format}" field="dateCreated" id="c_com_saas_golf_domain_GolfClub_dateCreated" z="1TvFBgTl0QKqYkVIIRo0fJVNZ1Q="/>
+        <field:select field="account" id="c_com_saas_golf_domain_GolfClub_account" itemValue="id" items="${accounts}" path="/accounts" required="true" z="e5DY1s5OS3ZV1SBRkDdJpus+j0M="/>
+        <field:select field="golfCourse" id="c_com_saas_golf_domain_GolfClub_golfCourse" itemValue="id" items="${golfcourses}" path="/golfcourses" required="true" z="RweOW7TEmv6EIdxsmITFimFToyo="/>
+        <field:select field="competitions" id="c_com_saas_golf_domain_GolfClub_competitions" itemValue="id" items="${competitions}" multiple="true" path="/competitions" z="aLF1fGpKHmRviV/qzDljzDpGqAY="/>
+        <field:select field="players" id="c_com_saas_golf_domain_GolfClub_players" itemValue="id" items="${players}" multiple="true" path="/players" z="T44EEE1+D7u/DnGmIFi/kuSPnBM="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_saas_golf_domain_GolfClub" render="${not empty dependencies}" z="nQ4XYXFHSSq0I66FutKtcuVkt8Y="/>
+</div>

@@ -1,0 +1,232 @@
+//see http://blog.springsource.com/2009/05/27/roo-part-2/
+
+project --topLevelPackage com.saas.golf --packaging POM 
+module create --moduleName core --topLevelPackage ~
+module focus --moduleName ~
+module create --moduleName web --topLevelPackage ~
+
+perform eclipse
+
+//------------------MongoDB START--------------------------
+mongo setup --databaseName golf-mongodb --cloudFoundry true
+
+entity mongo --class ~.domain.ScoreCard --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName teeColor --notNull true --sizeMin 2 --sizeMax 20
+field number --fieldName par --notNull true --type java.lang.Integer --max 80 --min 68
+field number --fieldName courseLengthYards --notNull true --type java.lang.Integer --min 1000
+field file --fieldName courseMap --contentType PNG  --notNull true
+field set --fieldName golfCourseHoles --type ~.domain.GolfCourseHole 
+repository mongo --interface ~.repository.ScoreCardRepository --entity ~.domain.ScoreCard
+
+entity mongo --class ~.domain.GolfCourse --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName courseType --notNull true --sizeMin 2
+field number --fieldName holes --notNull true --type java.lang.Integer --max 18 --min 9
+field string --fieldName designedBy --notNull true --sizeMin 2
+field number --fieldName yearBuilt --notNull true --type java.lang.Integer --min 1550 --max 2100
+field boolean --fieldName guestsWelcome --notNull true
+field boolean --fieldName drivingRange --notNull true
+field boolean --fieldName puttingGreen --notNull true
+field boolean --fieldName rentalClubs --notNull true
+field boolean --fieldName rentalGolfTrolley --notNull true
+field boolean --fieldName enabledGPS --notNull true
+field boolean --fieldName rentalGolfCart --notNull true
+field boolean --fieldName proShop --notNull true
+field boolean --fieldName teachingPro --notNull true
+field boolean --fieldName golfSchool --notNull true
+field boolean --fieldName bookingsWelcomed --notNull true
+field number --fieldName priceRangeWeekdaysLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekdaysHigh --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsLow --notNull true --type java.lang.Double
+field number --fieldName priceRangeWeekendsHigh --notNull true --type java.lang.Double
+field string --fieldName otherFacilities --notNull false
+field set --fieldName scoreCards --type ~.domain.ScoreCard --cardinality ONE_TO_MANY 
+repository mongo --interface ~.repository.GolfCoursesRepository --entity ~.domain.GolfCourse
+
+entity mongo --class ~.domain.GolfInfo --testAutomatically
+field string --fieldName name --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field file --fieldName logo --contentType PNG --notNull true
+field string --fieldName address --notNull true --sizeMin 2 --sizeMax 250
+field string --fieldName phoneNumbers --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 6 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 40
+field string --fieldName website --notNull true --sizeMin 2 --sizeMax 40
+field set --fieldName golfCourses --type ~.domain.GolfCourse --cardinality ONE_TO_ONE
+repository mongo --interface ~.repository.GolfInfoRepository --entity ~.domain.GolfInfo
+
+entity mongo --class ~.domain.Account --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field string --fieldName title --notNull true --sizeMin 2 --sizeMax 8
+field string --fieldName firstName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName lastName --notNull true --sizeMin 2 --sizeMax 30
+field string --fieldName addressOne --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressTwo --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName addressThree --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName town --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName county --notNull true --sizeMin 2 --sizeMax 60
+field string --fieldName mobile --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName phone --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName fax --notNull true --sizeMin 2 --sizeMax 20
+field string --fieldName email --notNull true --sizeMin 2 --sizeMax 30
+repository mongo --interface ~.repository.AccountRepository --entity ~.domain.Account
+
+entity mongo --class ~.domain.GolfCourseHole --testAutomatically
+field number --fieldName holeNumber --notNull true --type java.lang.Integer --max 18 --min 1
+field number --fieldName par --notNull true --type java.lang.Integer --max 6 --min 3
+field number --fieldName holeIndex --notNull true --type java.lang.Integer --max 18 --min 1
+repository mongo --interface ~.repository.GolfCourseHoleRepository --entity ~.domain.GolfCourseHole
+
+entity mongo --class ~.domain.GolfRound --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field boolean --fieldName inProgress --notNull true
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+repository mongo --interface ~.repository.GolfRoundRepository --entity ~.domain.GolfRound
+
+entity mongo --class ~.domain.Player --testAutomatically
+field string --fieldName playerName --notNull true --sizeMin 2 --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field number --fieldName handicap --notNull true --type double
+field set --fieldName golfRounds --type ~.domain.GolfRound --cardinality ONE_TO_MANY
+repository mongo --interface ~.repository.PlayerRepository --entity ~.domain.Player
+
+entity mongo --class ~.domain.PlayerParticipant --testAutomatically
+field reference --fieldName scoreCard --notNull true --type ~.domain.ScoreCard
+field reference --fieldName player --notNull true --type ~.domain.Player
+repository mongo --interface ~.repository.CompetitionRepository --entity ~.domain.Competition
+
+entity mongo --class ~.domain.Competition --testAutomatically
+field string --fieldName name --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field set --fieldName playerParticipants --type ~.domain.PlayerParticipant
+repository mongo --interface ~.repository.CompetitionRepository --entity ~.domain.Competition
+
+entity mongo --class ~.domain.GolfClub --testAutomatically
+field string --fieldName golfClubName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field reference --fieldName golfCourse --notNull true --type ~.domain.GolfCourse
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfClubRepository --entity ~.domain.GolfClub
+
+entity mongo --class ~.domain.GolfSociety --testAutomatically
+field string --fieldName societyName --notNull true --sizeMax 50
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName competitions --type ~.domain.Competition
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolfSocietyRepository --entity ~.domain.GolfSociety
+
+entity mongo --class ~.domain.Golfer --testAutomatically
+field date --fieldName dateCreated --type java.util.Date --dateTimeFormatPattern "yyyy-MM-dd hh:mm:ss a"
+field reference --fieldName account --notNull true --type ~.domain.Account
+field set --fieldName players --type ~.domain.Player
+repository mongo --interface ~.repository.GolferRepository --entity ~.domain.Golfer
+
+
+module focus --moduleName web 
+web mvc setup
+web mvc all --package ~.web.scaffold
+module focus --moduleName ~
+perform package
+
+//turn on
+pgp automatic trust
+//install cloud foundry
+addon install id --searchResultId 70
+//turn off
+pgp automatic trust
+cloud foundry login --email eugene_bell@yahoo.com --password kestrel30
+cloud foundry info
+cloud foundry list apps
+cloud foundry list services
+
+//Deploy to Cloudfoundry
+cloud foundry deploy --appName golfservice --path web\target\web-0.1.0.BUILD-SNAPSHOT.war 
+//Bind mongoDB to Application
+cloud foundry bind service --serviceName golf-mongodb --appName golfservice
+//View how much memory is available
+cloud foundry update app memory --appName golfservice
+//Start the application
+cloud foundry start app --appName golfservice
+
+//entity mongo --class ~.domain.User --testAutomatically
+//field string --fieldName username --notNull true --sizeMax 20
+//field string --fieldName password --notNull true --sizeMax 20
+//field string --fieldName authories --notNull true
+//repository mongo --interface ~.repository.UserRepository --entity ~.domain.User
+//------------------MongoDB END--------------------------
+
+
+//------------------WEB MVC START--------------------------
+web mvc setup
+web mvc scaffold --class ~.domain.PersonController
+//------------------WEB MVC END--------------------------
+
+//------------------JUnit integration tests START--------------------------
+test integration
+//------------------JUnit integration tests END--------------------------
+
+//------------------RESTful Controller START--------------------------
+controller class --class ~.web.GolfScoreCardController
+//------------------RESTful Controller END--------------------------
+
+//------------------SELENIUM START--------------------------
+selenium test --controller ~.web.GolfController
+//------------------SELENIUM END--------------------------
+
+//------------------LOGGING START--------------------------
+logging setup --package WEB --level DEBUG
+//------------------LOGGING END--------------------------
+
+//------------------SECURITY START--------------------------
+security setup
+//------------------SECURITY END--------------------------
+
+//------------------EMAIL START--------------------------
+email sender setup --hostServer 127.0.0.1
+install email provider -hostServer smtp.gmail.com -protocol SMTP -port 587 -username stsmedia -password yourpassword
+/*Note that the email addon provides quite a number of configuration options such as host, protocol, port, username, 
+password and encoding, but using tab completion on the shell should avoid you having to type most of the command. 
+Roo will offer email protocol support for SMTP, IMAP or POP3 when you try tab completion. The install email command will 
+install the Spring MailTemplate in your application context as well as a email.properties file which allows you to 
+conveniently change your settings later on if desired. Roo actually provides commands for this as well:*/
+property file details -name email.properties -path SRC_MAIN_RESOURCES
+email.host = smtp.gmail.com
+email.username = stsmedia
+email.password = yourpassword
+email.port = 587
+email.protocol = smtp
+
+roo> property file set -key test -value test -name email.properties -path SRC_MAIN_RESOURCES
+//------------------EMAIL END--------------------------
+
+
+//other commands--------------------------------
+perform test
+perform package
+mvn selenium:selenese
+mvn tomcat:run
+
+
+------------------------------------------
+/*Dynamic finders provide you with an almost unlimited range of pre-canned queries. These queries all internally use JPA QL, 
+delivering maximum standards-based compatibility and portability. All dynamic finders (and other Roo methods) are implemented 
+as properly-formed, type-safe Java methods â€“ bringing all the normal advantages of familiarity, IDE code assist, debugger 
+integration and significant runtime performance. You can list the available dynamic finders using a command such as this:*/
+//finder list --class ~.domain.Rsvp --filter code,equ
+/*Note the "â€“filter" argument is limiting the output to only those proposed method signatures that contain the "code" and "equ" strings. 
+You can instruct Roo you'd like to see more combinations by omitting the "-filter" argument, or specifying "-depth 2" 
+(or 3, 4 etc if you'd like more properties involved in your query).*/
+//finder add --finderName findRsvpsByCodeEquals
+
+
+
+-----------CURL Command----------------------------------------------
+curl -i -H "Accept: application/json" http://golfservice.cloudfoundry.com/scorecards
+
+
+//Example of ObjectId
+//entity mongo --class ~.domain.Book --testAutomatically --identifierType org.bson.types.ObjectId
